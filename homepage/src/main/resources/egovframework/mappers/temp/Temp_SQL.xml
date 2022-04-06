@@ -14,4 +14,11 @@
 		FROM lettemp
 		WHERE TEMP_ID = #{tempId}
 	</select>
+	
+	<select id="selectTempList" resultType="egovMap">
+		SELECT
+			TEMP_ID
+			, TEMP_VAL
+		FROM lettemp
+	</select>	
 </mapper>
