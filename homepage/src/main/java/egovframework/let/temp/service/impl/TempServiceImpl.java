@@ -26,12 +26,16 @@ import org.springframework.stereotype.Service;
 public class TempServiceImpl extends EgovAbstractServiceImpl
 	implements TempService{
 		
+	@Resource(name = "tempMapper")
+	private TempMapper tempMapper;
+	
 	@Resource(name = "tempDAO")
 	private TempDAO tempDAO;
 	
 	@Override
 	public TempVO selectTemp(TempVO vo) throws Exception{
 		return tempDAO.selectTemp(vo);
+		
 	}
 
 }

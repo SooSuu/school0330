@@ -6,14 +6,12 @@ import egovframework.let.cop.bbs.service.Board;
 import egovframework.let.cop.bbs.service.BoardVO;
 import egovframework.let.temp.service.TempVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("tempDAO")
-public class TempDAO extends EgovAbstractDAO {
+@Mapper("tempMapper")
+public interface TempMapper {
 	
-	public TempVO selectTemp(TempVO tempVO) throws Exception {
-		return (TempVO)select("TempDAO.selectTemp",tempVO);
-	}
-	
+	TempVO selectTemp(TempVO vo) throws Exception;
 }
