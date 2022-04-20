@@ -16,4 +16,6 @@ public interface TempService {
 	public void updateTemp(TempVO vo) throws Exception;
 	//임시데이터 삭제하기
 	public void deleteTemp(TempVO vo) throws Exception;
+	//임시데이터 목록 수
+	public int selectTempListCnt(TempVO vo) throws Exception;
 }
