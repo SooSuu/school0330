@@ -10,14 +10,14 @@
 		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM"/>
 	</resultMap>
 	
-	<select id="selectCrud" resultType="egovframework.let.crud.service.CrudVO">
-	<!-- <select id="selectCrud" resultMap="crud"> -->
+<!-- 	<select id="selectCrud" resultType="egovframework.let.crud.service.CrudVO"> -->
+	<select id="selectCrud" resultMap="crud">
 		SELECT
-			CRUD_ID AS crudId
-			, CRUD_SJ AS crudSj
-			, CRUD_CN AS crudCn
-			, CRUD_NM AS crudNm
-			, FRST_REGIST_PNTTM AS frstRegistPnttm
+			CRUD_ID
+			, CRUD_SJ
+			, CRUD_CN
+			, CRUD_NM
+			, FRST_REGIST_PNTTM
 		FROM letcrud
 		WHERE CRUD_ID = #{crudId}
 	</select>
@@ -28,7 +28,7 @@
 			, CRUD_SJ
 			, CRUD_CN
 			, CRUD_NM
-			, FRST_REGIST_PNTTM
+			, DATE_FORMAT(FRST_REGIST_PNTTM, '%Y-%m-%d') AS FRST_REGIST_PNTTM
 		FROM letcrud
 		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 	</select>	
@@ -51,11 +51,9 @@
 	
 	<update id="updateCrud" parameterType="egovframework.let.crud.service.CrudVO">
 		UPDATE letcrud SET
-			CRUD_ID = #{crudId}
-			, CRUD_SJ = #{crudSj}
+			CRUD_SJ = #{crudSj}
 			, CRUD_NM = #{crudNm}
 			, CRUD_CN = #{crudCn}
-			, FRST_REGIST_PNTTM = SYSDATE()
 		WHERE CRUD_ID = #{crudId}
 	</update>
 	

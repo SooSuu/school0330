@@ -16,7 +16,8 @@ public class CrudVO extends ComDefaultVO implements Serializable {
 	//데이터 작성자
 	private String crudNm;
 	//데이터 작성일
-	private String frstRegistPnttm;
+	private java.util.Date frstRegistPnttm;
+	
 	
 	public String getCrudId() {
 		return crudId;
@@ -42,11 +43,12 @@ public class CrudVO extends ComDefaultVO implements Serializable {
 	public void setCrudNm(String crudNm) {
 		this.crudNm = crudNm;
 	}
-	public String getFrstRegistPnttm() {
+	public java.util.Date getFrstRegistPnttm() {
 		return frstRegistPnttm;
 	}
-	public void setFrstRegistPnttm(String frstRegistPnttm) {
+	public void setFrstRegistPnttm(java.util.Date frstRegistPnttm) {
 		this.frstRegistPnttm = frstRegistPnttm;
 	}
+
 	
 }
