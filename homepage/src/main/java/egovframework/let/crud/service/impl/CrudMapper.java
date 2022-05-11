@@ -14,21 +14,21 @@ import org.springframework.stereotype.Repository;
 
 @Mapper("crudMapper")
 public interface CrudMapper {
-	//임시데이터 가져오기
+	//CRUD 가져오기
 	CrudVO selectCrud(CrudVO vo) throws Exception;
 	
-	//임시데이터 가져오기
+	//CRUD 목록 가져오기
 	List<EgovMap> selectCrudList(CrudVO vo) throws Exception;
 	
-	//임시데이터 등록
+	//CRUD 등록
 	void insertCrud(CrudVO vo) throws Exception;
 	
-	//임시데이터 수정하기
+	//CRUD 수정하기
 	void updateCrud(CrudVO vo) throws Exception;
 	
-	//임시데이터 삭제하기
+	//CRUD 삭제하기
 	void deleteCrud(CrudVO vo) throws Exception;
 	
-	//임시데이터 목록 수
+	//CRUD 목록 수
 	int selectCrudListCnt(CrudVO vo) throws Exception;
 }

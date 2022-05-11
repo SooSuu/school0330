@@ -44,14 +44,14 @@
 
 <form action="${actionUrl}" method="post" name="crudVO">
 	<input type="hidden" name="crudId" value="${result.crudId}"/>
-	<label for="crudSj">제목 :</label>
+	<label for="crudSj">제  목 :</label>
 		<input type="text" id="crudSj" name="crudSj" value="${result.crudSj}"/>
 	<br>
 	<label for="crudNm">작성자 :</label>
 		<input type="text" id="crudNm" name="crudNm" value="${result.crudNm}"/>
 	<br>
-	<label for="crudCn">내용 :</label>
-		<input type="text" id="crudCn" name="crudCn" value="${result.crudCn}"/>
+	<label for="crudCn">내  용 :</label>
+		<textarea rows="10" name="crudCn"><c:out value="${result.crudCn}"/></textarea>
 	<br>
 	<c:choose>
 		<c:when test="${not empty searchVO.crudId}">
@@ -61,6 +61,8 @@
 			<button type="submit">등록</button><%--Id값이 없으면 등록--%>
 		</c:otherwise>
 	</c:choose>
+	<br>
+	<a href="/crud/selectList.do">취소</a>
 </form>
 
 </body>

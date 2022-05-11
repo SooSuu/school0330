@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
@@ -28,19 +29,19 @@
 	<table>
 		<tr>
 			<th>제목</th>
-			<th>${result.crudSj}</th>
+			<td><c:out value="${result.crudSj}"/></td>
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<th>${result.crudNm}</th>
+			<td><c:out value="${result.crudNm}"/></td>
 		</tr>
 		<tr>		
 			<th>작성일</th>
-			<th>${result.frstRegistPnttm}</th>
+			<td><fmt:formatDate value="${result.frstRegistPnttm}" pattern="yyyy-MM-dd"/></td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<th>${result.crudCn}</th>
+			<td><c:out value="${result.crudCn}"/></td>
 		</tr>		
 	</table>
 ﻿

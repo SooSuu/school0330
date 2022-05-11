@@ -28,40 +28,40 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 @Service("crudService")
-public class CrudServiceImpl extends EgovAbstractServiceImpl
-	implements CrudService{
+public class CrudServiceImpl extends EgovAbstractServiceImpl implements CrudService{
 		
 	@Resource(name = "crudMapper")
 	private CrudMapper crudMapper;
 	
+	//idgen--> context-idgen
 	@Resource(name = "egovCrudIdGnrService")
 	private EgovIdGnrService idgenService;
 	
-	@Override
-	public CrudVO selectCrud(CrudVO vo) throws Exception{
-		return crudMapper.selectCrud(vo);
-		
-	}
-	//임시데이터 목록 가져오기
+	
+	//CRUD 목록 가져오기
 	public List<EgovMap> selectCrudList(CrudVO vo) throws Exception{
 		return crudMapper.selectCrudList(vo);
 	}
-	//임시데이터 등록하기
+	//CRUD 등록하기
 	public String insertCrud(CrudVO vo) throws Exception{
 		String id = idgenService.getNextStringId();
 		vo.setCrudId(id);
 		crudMapper.insertCrud(vo);
 		return null;
 	}
-	//임시데이터 목록 가져오기
+	//CRUD 가져오기
+	public CrudVO selectCrud(CrudVO vo) throws Exception{
+		return crudMapper.selectCrud(vo);
+	}
+	//CRUD 수정하기
 	public void updateCrud(CrudVO vo) throws Exception{
 		crudMapper.updateCrud(vo);
 	}
-	//임시데이터 삭제하기
+	//CRUD 삭제하기
 	public void deleteCrud(CrudVO vo) throws Exception{
 		crudMapper.deleteCrud(vo);
 	}
-	//임시데이터 목록 수
+	//CRUD 목록 수
 	public int selectCrudListCnt(CrudVO vo) throws Exception{
 		return crudMapper.selectCrudListCnt(vo);
 	}

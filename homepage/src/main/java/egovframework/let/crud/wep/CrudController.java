@@ -39,7 +39,8 @@ public class CrudController {
 	
 	@Resource(name = "crudService")
 	private CrudService crudService;
-	//임시데이터 가져오기
+	
+	//CRUD 가져오기
 	@RequestMapping(value = "/crud/select.do")
 	public String select(@ModelAttribute("searchVO") CrudVO searchVO,
 			HttpServletRequest request, ModelMap model) throws Exception{
@@ -48,7 +49,7 @@ public class CrudController {
 		model.addAttribute("result",result);
 		return "crud/CrudSelect";
 	}
-	//임시데이터 목록 가져오기
+	//CRUD 목록 가져오기
 	@RequestMapping(value = "/crud/selectList.do")
 	public String selectList(@ModelAttribute("searchVO") CrudVO searchVO,HttpServletRequest request, ModelMap model) throws Exception{
 		
@@ -72,7 +73,7 @@ public class CrudController {
 		
 		return "crud/CrudSelectList";
 	}
-	//임시데이터 등록,수정
+	//CRUD 등록,수정
 	@RequestMapping(value = "/crud/crudRegist.do")
 	public String crudRegist(@ModelAttribute("searchVO") CrudVO crudVO,HttpServletRequest request, ModelMap model) throws Exception{
 		
@@ -84,21 +85,21 @@ public class CrudController {
 		
 		return "crud/CrudRegist";
 	}
-	//임시데이터 등록하기
+	//CRUD 등록하기
 	@RequestMapping(value = "/crud/insert.do")
 	public String insert(@ModelAttribute("searchVO") CrudVO searchVO,HttpServletRequest request, ModelMap model) throws Exception{
 		
 		crudService.insertCrud(searchVO);
 		return "forward:/crud/selectList.do";
 	}
-	//임시데이터 수정하기
+	//CRUD 수정하기
 	@RequestMapping(value = "/crud/update.do")
 	public String update(@ModelAttribute("searchVO") CrudVO searchVO,HttpServletRequest request, ModelMap model) throws Exception{
 		
 		crudService.updateCrud(searchVO);
 		return "forward:/crud/selectList.do";
 	}
-	//임시데이터 삭제하기
+	//CRUD 삭제하기
 	@RequestMapping(value = "/crud/delete.do")
 	public String delete(@ModelAttribute("searchVO") CrudVO searchVO,HttpServletRequest request, ModelMap model) throws Exception{
 		

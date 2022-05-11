@@ -20,6 +20,7 @@
 	    border: 1px solid #444444;
 	    padding: 5px;
 	    text-align: center;
+	    text-decoration: none;
 	}
 	.paging_align{
 		list-style: none;

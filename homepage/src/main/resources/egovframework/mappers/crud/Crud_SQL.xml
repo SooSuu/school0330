@@ -30,10 +30,11 @@
 			, CRUD_NM
 			, DATE_FORMAT(FRST_REGIST_PNTTM, '%Y-%m-%d') AS FRST_REGIST_PNTTM
 		FROM letcrud
+		ORDER BY CRUD_ID DESC
 		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 	</select>	
 	
-	<insert id="insertCrud" parameterType="egovframework.let.crud.service.CrudVO">
+	<insert id="insertCrud" parameterType="crudVO">
 		INSERT INTO letcrud (
 			CRUD_ID
 			, CRUD_SJ
@@ -45,7 +46,7 @@
 			, #{crudSj}
 			, #{crudNm}
 			, #{crudCn}
-			, SYSDATE()
+			, NOW()
 		)
 	</insert>
 	
