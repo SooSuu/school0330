@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="crud">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="crudVO" type="egovframework.let.crud.service.CrudVO"/>
+	
+	<resultMap id="crud" class="egovframework.let.crud.service.CrudVO">
+		<result property="crudId" column="CRUD_ID"/>
+		<result property="crudSj" column="CRUD_SJ"/>
+		<result property="crudCn" column="CRUD_CN"/>
+		<result property="crudNm" column="CRUD_NM"/>
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM"/>
+	</resultMap>
+	
+	<select id="CrudDAO.selectCrud" parameterClass="crudVO" resultMap="crud">
+		SELECT
+			CRUD_ID
+			, CRUD_SJ
+			, CRUD_CN
+			, CRUD_NM
+			, FRST_REGIST_PNTTM
+		FROM letcrud
+		WHERE CRUD_ID = #crudId#
+	</select>
+
+
+</sqlMap>
