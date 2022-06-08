@@ -75,7 +75,7 @@
 								<td class="tit">
 									<c:url var="viewUrl" value="/board/select.do${_BASE_PARAM}">
 										<c:param name="boardId" value="${result.boardId}"/>
-										<c:param name="pageIndex" value="${result.boardSj}"/>
+										<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
 									</c:url>
 									<a href="${viewUrl}"><c:out value="${result.boardSj}"/></a>
 								</td>

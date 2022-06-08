@@ -20,4 +20,16 @@ public interface BoardMapper {
 	
 	//게시물 등록하기
 	void insertBoard(BoardVO vo) throws Exception;
+	
+	//게시물 상세정보
+	BoardVO selectBoard(BoardVO vo) throws Exception;
+	
+	//조회수 업데이트
+	void updateViewCnt(BoardVO vo) throws Exception;
+	
+	//게시물 수정하기
+	void updateBoard(BoardVO vo) throws Exception;
+	
+	//게시물 삭제하기
+	void deleteBoard(BoardVO vo) throws Exception;
 }
