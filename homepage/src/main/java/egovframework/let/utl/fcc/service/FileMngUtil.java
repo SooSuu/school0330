@@ -25,7 +25,7 @@ public class FileMngUtil {
 	protected EgovPropertyService propertyService;
 	
 	@Resource(name = "egovFileIdGnrService")
-	protected EgovIdGnrService idGnrService;
+	protected EgovIdGnrService idgenService;
 	
 	//첨부파일에 대한 목록정보를 취득한다.
 	public List<FileVO> parseFileInf(Map<String,MultipartFile> files, String KeyStr, int fileKeyParam, String atchFileId, String storePath) throws Exception{
@@ -42,6 +42,12 @@ public class FileMngUtil {
 			storePathString = propertyService.getString("Globals.fileStorePath");
 		}else {
 			storePathString = propertyService.getString(storePath);
+		}
+		//첨부파일ID 생성 및 업데이트 여부
+		if("".equals(atchFileId) || atchFileId == null) {
+			atchFileIdString = idgenService.getNextStringId();
+		} else {
+			atchFileIdString = atchFileId;
 		}
 		
 		//폴더경로 설정	
@@ -93,7 +99,7 @@ public class FileMngUtil {
 			fvo.setFileExtsn(fileExt);
 			fvo.setFileStreCours(storePathString);
 			fvo.setFileMg(Long.toString(size));
-			fvo.setOrignlFileNm(newName);
+			fvo.setOrignlFileNm(orginFileName);
 			fvo.setStreFileNm(newName);
 			fvo.setAtchFileId(atchFileIdString);
 			fvo.setFileSn(String.valueOf(fileKey));
