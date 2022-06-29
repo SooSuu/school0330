@@ -125,5 +125,14 @@ public class EgovLoginController {
 
 		return "forward:/cmm/main/mainPage.do";
 	}
+	
+	@RequestMapping(value = "/index.do")
+	public String index (HttpServletRequest request, ModelMap model) throws Exception {
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "main/Index";
+	}
 
 }
