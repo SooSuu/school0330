@@ -8,30 +8,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no"/>
-<title>Main</title>
-<link href="/asset/front/css/style.css" rel="stylesheet" />
+<title>진주축제</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-</head>
-<body>
 
-<c:choose>
-	<c:when test="${empty USER_INFO.id}">
-		<a href="/login/egovLoginUsr.do" class="login">로그인</a>
-	</c:when>
-	<c:otherwise>
-		<a href="/login/actionLogout.do"><c:out value="${USER_INFO.name}"/>님 로그아웃</a>
-	</c:otherwise>
-</c:choose>
+<!-- 헤더 인클루드 -->
+<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
 
 <div class="dim"></div>
 <!-- 로그인 -->
 <div class="layer-popup layer-login" style="display: none;">
 	<header class="layer-header">
 		<span class="logo">
-			<span class="img-logo">한국폴리텍대학교 대전캠퍼스 하이테크과정</span>
+			<img alt="한국폴리텍대학교 대전캠퍼스 하이테크과정" src="/images/logo.png">
 		</span>
 		<button type="button" class="layer-close"><span>팝업 닫기</span></button>
 	</header>
@@ -52,6 +44,33 @@
 	</div>
 </div>
 
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src='<c:url value="/images/index/01_01.png"/>'></div>
+        <div class="swiper-slide"><img src='<c:url value="/images/index/02_01.png"/>'></div>
+        <div class="swiper-slide">진주논개제</div>
+        <div class="swiper-slide">진주소싸움대회</div>
+        <div class="swiper-slide">진주국제농식품박람회</div>
+        <div class="swiper-slide">진주탈춤한마당</div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    
 <script>
 $(document).ready(function(){
 	//로그인

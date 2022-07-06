@@ -22,7 +22,7 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no"/>
-<title>공지사항 / 이벤트</title>
+<title>Q&A</title>
 
 <!-- BoardSelectList CSS -->
 <!-- BBS Style -->
@@ -66,24 +66,7 @@
 
 <div class="container">
 	<div class="contents">
-<%-- 	
-		<!-- 검색영역 -->
-		<div id="bbs_search">
-			<form name="frm" method="post" action="/board/selectList.do">
-				<fieldset>
-					<legend>검색조건입력폼</legend>
-					<label for="ftext" class="hdn">검색분류선택</label>
-					<select name="searchCondition" id="ftext">
-						<option value="0" <c:if test="${searchVO.searchCondition eq '0'}">selected="selected"</c:if>>제목</option>
-						<option value="1" <c:if test="${searchVO.searchCondition eq '1'}">selected="selected"</c:if>>내용</option>
-						<option value="2" <c:if test="${searchVO.searchCondition eq '2'}">selected="selected"</c:if>>작성자</option>
-					</select>
-					<label for="inp_text" class="hdn">검색어입력</label>
-					<input name="searchKeyword" value="<c:out value="${searchVO.searchKeyword}"/>" type="text" class="inp_s" id="inp_text" />
-					<span class="bbtn_s"><input type="submit" value="검색" title="검색(수업용 게시판 게시물 내)"/></span>
-				</fieldset>
-			</form>
-		</div> --%>
+
 		
 		<!-- 목록영역 -->
 		<div id="bbs_wrap">
@@ -107,7 +90,7 @@
 							<tr class="notice">
 								<td class="num"><span class="label-bbs spot">공지</span></td>
 								<td class="tit">
-									<c:url var="viewUrl" value="/board/select.do${_BASE_PARAM}">
+									<c:url var="viewUrl" value="/board2/select.do${_BASE_PARAM}">
 										<c:param name="boardId" value="${result.boardId}"/>
 										<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
 									</c:url>
@@ -140,7 +123,7 @@
 										<img src="${thumbUrl}" alt="">
 									</c:if>
 									<br>
-									<c:url var="viewUrl" value="/board/select.do${_BASE_PARAM}">
+									<c:url var="viewUrl" value="/board2/select.do${_BASE_PARAM}">
 										<c:param name="boardId" value="${result.boardId}"/>
 										<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
 									</c:url>
@@ -171,13 +154,13 @@
 				</table>				
 			</div>
 			<div id="paging">
-				<c:url var="pageUrl" value="/board/selectList.do${_BASE_PARAM}"/>
+				<c:url var="pageUrl" value="/board2/selectList.do${_BASE_PARAM}"/>
 				<c:set var="pagingParam"><c:out value="${pageUrl}"/></c:set>
 				<ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="${pagingParam}"/>
 			</div>
 		</div>
 		<div class="bit-cont ar">
-			<a href="/board/boardRegist.do" class="btn spot">
+			<a href="/board2/board2Regist.do" class="btn spot">
 				<i class="ico-check-spot"></i> 글쓰기
 			</a>
 		</div>

@@ -1,0 +1,202 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    초기화 코드
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* 초기화 코드 끝 */
+
+
+html,body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 85%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+#header{
+    height: 80px;
+    /* background: rgb(70, 208, 250); */
+    padding-top: 20px;
+}
+#header .logo{
+    float: left;
+    margin-left: 30px;
+}
+#header .gnb li{
+    display:inline-block;
+    padding: 27px;    
+}
+#header .gnb li a{
+    text-decoration: none;  
+    font-family: 'Jua', sans-serif;
+    font-size: 1.5em;
+    color: black;
+}
+#header .gnb .left_menu{
+    float: left;
+    margin-left: 100px;
+}
+#header .gnb .right_menu{
+    float: right;
+}
+
+.sidebar{
+    width: 100%;
+    height: 250px;
+}
+/* .sub_bar{
+    margin: 30px 70px;
+    text-align: center;
+}
+.sub_bar ul{
+    list-style: none;
+}
+.sub_bar ul li{
+    float: left;
+}
+.sub_bar li a{
+    padding: 10px 30px;
+    text-decoration: none;
+    width: 30%;
+    cursor: pointer;
+} */
+.sub_bar{
+    margin: 30px 70px;
+    text-align: center;
+}
+.sub_bar span a{
+    padding: 10px 30px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 30px;
+    font-weight: 550;
+    font-family: 'Dongle', cursive;
+}
+
+
+
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: ivory;
+}
+.item-wrap{
+    font-size: 0;
+    display:block;
+    margin: 0 auto;
+}
+.item-wrap .item{
+    width: 100%;
+    text-align:center;
+    font-size: 16px;
+    padding: 50px 0;
+    border-top: 1px solid black;
+}
+.item-wrap .item .menu{
+    font-family: 'Jua', sans-serif;
+    padding: 10px 0;
+}
+
+.item iframe{
+    width: 50%; 
+    height: 450px; 
+    border: 0;
+    padding-bottom: 15px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+
+@media (max-width:786px){
+    .sub_bar{
+        display: none;
+    }
+}

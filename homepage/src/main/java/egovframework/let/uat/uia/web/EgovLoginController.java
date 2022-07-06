@@ -134,5 +134,14 @@ public class EgovLoginController {
 		
 		return "main/Index";
 	}
+	
+	@RequestMapping(value = "/festival.do")
+	public String festival (HttpServletRequest request, ModelMap model) throws Exception {
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "main/Festival";
+	}
 
 }
