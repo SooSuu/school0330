@@ -194,6 +194,13 @@
 			<version>0.4.2</version>
 		</dependency>
 		
+		<!-- 댓글/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20180130</version>
+		</dependency>
+		
 	</dependencies>
 
     <build>

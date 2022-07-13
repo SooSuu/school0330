@@ -61,7 +61,7 @@ body {
 
 .swiper {
   width: 100%;
-  height: 85%;
+  height: 80%;
 }
 
 .swiper-slide {
@@ -87,15 +87,15 @@ body {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 97%;
   object-fit: cover;
 }
 
 
 #header{
-    height: 80px;
+    height: 70px;
     /* background: rgb(70, 208, 250); */
-    padding-top: 20px;
+    padding-top: 10px;
 }
 #header .logo{
     float: left;
@@ -123,22 +123,7 @@ body {
     width: 100%;
     height: 250px;
 }
-/* .sub_bar{
-    margin: 30px 70px;
-    text-align: center;
-}
-.sub_bar ul{
-    list-style: none;
-}
-.sub_bar ul li{
-    float: left;
-}
-.sub_bar li a{
-    padding: 10px 30px;
-    text-decoration: none;
-    width: 30%;
-    cursor: pointer;
-} */
+
 .sub_bar{
     margin: 30px 70px;
     text-align: center;
@@ -148,7 +133,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     color: #000;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 550;
     font-family: 'Dongle', cursive;
 }
@@ -172,9 +157,19 @@ body {
     padding: 50px 0;
     border-top: 1px solid black;
 }
+.item-wrap .item .fesImg{
+    width: 50%;
+    height: 50%;
+}
 .item-wrap .item .menu{
     font-family: 'Jua', sans-serif;
     padding: 10px 0;
+}
+.item-wrap .item .list{
+    font-size: 11px;
+    padding: 10px 15%;
+    font-family: 'Noto Sans KR', sans-serif;
+	line-height: 2.5;
 }
 
 .item iframe{
@@ -194,6 +189,13 @@ body {
   right: 30px;
 }
 
+
+footer{
+    background: rgb(46, 46, 46);
+    font-size: 14px bold;
+    padding: 25px 0 25px 100px;
+    color: #ccc;
+}
 
 @media (max-width:786px){
     .sub_bar{

@@ -4,7 +4,7 @@
 /***********************************************************
 * bbs_warp : web 
 ************************************************************/
-#bbs_wrap { width:100%; }
+#bbs_wrap { width:100%; font-family: 'Noto Sans KR';}
 div ~ #bbs_wrap { margin-top:30px; }
 #bbs_wrap .total { margin-bottom: 10px;text-align:left;padding-left:15px;background: url("./images/icon_balloon.gif") no-repeat scroll left center transparent; width:auto;float:none;clear:both; }
 #bbs_wrap input + .total { margin-top:0; }
@@ -240,7 +240,7 @@ table.file_list_chart tbody td.del { text-align:center;width:50px; }
 
 /* label */
 .label-bbs { display:inline-block;height:20px;line-height:20px;background:#aaa;color:#fff;font-size:11px;font-family:Daum;padding:0 5px; }
-.label-bbs.spot { background:#c000c0; }
+.label-bbs.spot { background:#8EB5FF; }
 .label-bbs.spot2 { background:#ff9f00; }
 
 .comtneduprgVO .txt { width:100%; }
