@@ -140,7 +140,6 @@
                  <p class="list">
                 	진주남강유등축제, 개천예술제, 진주논개제 개최 장소 입니다.<br>
                 </p>
-                <br>
             </div>
         </div>
         <span class="material-symbols-outlined">
@@ -149,6 +148,12 @@
             </a>
         </span>
     </section>
+
+    <footer>
+		진주축제<br>
+		관리자 연락처 : 010-0000-0000<br>
+		52789 경상남도 진주시 동진로 155 (상대동)
+    </footer>
 
 <script>
 $(document).ready(function(){

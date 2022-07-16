@@ -2051,9 +2051,10 @@ input.datepicker + span {
 	margin:0 auto;
 	position:relative;
 	overflow:hidden;
+	width: 100%;
 }
 #contents{
-	padding-top:100px;
+	padding-top:50px;
 }
 .sub_wrap{margin:0 auto;padding:0;}
 .sub_wrap .container #contents {

@@ -24,7 +24,7 @@
         <div class="swiper-slide"><img src='<c:url value="/images/index/01_01.png"/>'></div>
         <div class="swiper-slide"><img src='<c:url value="/images/index/02_01.png"/>'></div>
         <div class="swiper-slide"><img src='<c:url value="/images/index/03_01.png"/>'></div>
-        <div class="swiper-slide">진주소싸움대회</div>
+        <div class="swiper-slide"><img src='<c:url value="/images/index/04_01.jpg"/>'></div>
         <div class="swiper-slide"><img src='<c:url value="/images/index/05_01.png"/>'></div>
         <div class="swiper-slide"><img src='<c:url value="/images/index/06_01.png"/>'></div>
       </div>
