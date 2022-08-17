@@ -22,7 +22,7 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no"/>
-<title>수업용 게시판</title>
+<title>이벤트 게시판</title>
 <!-- BBS Style -->
 <link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
 <!-- 공통 style -->
@@ -106,8 +106,11 @@ $(function(){
     });
 });
 </script>
-</head>
-<body>
+
+<!-- 헤더 인클루드 -->
+<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
+
+
 <c:choose>
 	<c:when test="${not empty searchVO.boardId}">
 		<c:set var="actionUrl" value="/board/update.do"/>
@@ -136,16 +139,16 @@ $(function(){
 						<input type="text" id="boardSj" name="boardSj" title="제목입력" class="q3" value="<c:out value="${result.boardSj}"/>"/>
 					</td>
 				</tr>
-				<tr>
-					<th scope="row">공지여부</th>
-					<td>
-						<label for="noticeAtY">예 : </label>
-						<input type="radio" id="noticeAtY" value="Y" name="noticeAt" <c:if test="${result.noticeAt eq 'Y'}">checked="checked"</c:if>/>
-						&nbsp;&nbsp;&nbsp;
-						<label for="noticeAtN">아니오 : </label>
-						<input type="radio" id="noticeAtN" value="N" name="noticeAt" <c:if test="${result.noticeAt ne 'Y'}">checked="checked"</c:if>/>
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<th scope="row">공지여부</th> -->
+<!-- 					<td> -->
+<!-- 						<label for="noticeAtY">예 : </label> -->
+<%-- 						<input type="radio" id="noticeAtY" value="Y" name="noticeAt" <c:if test="${result.noticeAt eq 'Y'}">checked="checked"</c:if>/> --%>
+<!-- 						&nbsp;&nbsp;&nbsp; -->
+<!-- 						<label for="noticeAtN">아니오 : </label> -->
+<%-- 						<input type="radio" id="noticeAtN" value="N" name="noticeAt" <c:if test="${result.noticeAt ne 'Y'}">checked="checked"</c:if>/> --%>
+<!-- 					</td> -->
+<!-- 				</tr> -->
 				<tr>
 					<th scope="row">비공개여부</th>
 					<td>

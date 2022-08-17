@@ -22,7 +22,7 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no"/>
-<title>공지사항 / 이벤트</title>
+<title>이벤트 게시판</title>
 
 <!-- BoardSelectList CSS -->
 <!-- BBS Style -->
@@ -34,35 +34,10 @@
 
 
 
-
 <!-- 헤더 인클루드 -->
 <%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
 
-<div class="dim"></div>
-<!-- 로그인 -->
-<div class="layer-popup layer-login" style="display: none;">
-	<header class="layer-header">
-		<span class="logo">
-			<img alt="한국폴리텍대학교 대전캠퍼스 하이테크과정" src="/images/logo.png">
-		</span>
-		<button type="button" class="layer-close"><span>팝업 닫기</span></button>
-	</header>
-	<div class="layer-body">
-		<form action="/login/actionLogin.do" id="frmLogin" name="frmLogin" method="post" onabort="return vali()">
-			<input type="hidden" name="userSe" value="USR"/>
-			<fieldset>
-				<legend>로그인을 위한 아이디/비밀번호 입력</legend>
-				<div class="ipt-row">
-					<input type="text" id="loginId" name="id" placeholder="아이디" required="required">
-				</div>
-				<div class="ipt-row">
-					<input type="password" id="loginPw" name="password" placeholder="비밀번호" required="required">
-				</div>
-				<button type="submit" class="btn-login"><spen>로그인</spen></button>
-			</fieldset>
-		</form>
-	</div>
-</div>
+
 
 <div class="container">
 	<div class="contents">
@@ -183,6 +158,13 @@
 		</div>
 	</div>
 </div>
+<br><br>
+    <footer>
+		진주축제<br>
+		관리자 연락처 : 010-0000-0000<br>
+		52789 경상남도 진주시 동진로 155 (상대동)
+    </footer>
+    
 <script>
 	<c:if test="${not empty message}">
 		alert("${message}");

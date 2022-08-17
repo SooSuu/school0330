@@ -38,6 +38,17 @@ public class Board2VO extends ComDefaultVO implements Serializable {
 	private String userId;
 	//관리자여부
 	private String mngAt;
+//	//댓글
+//	//댓글번호
+//	private int cCode;
+//	//테이블글번호
+//	private int bCode;
+//	//댓글 내용
+//	private String comment;
+//	//글쓴이
+//	private String writer;
+//	//시간
+//	private java.util.Date regDatetime;
 	
 	
 	public String getBoardId() {

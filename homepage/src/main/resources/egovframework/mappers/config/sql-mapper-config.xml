@@ -8,5 +8,6 @@
 		<typeAlias alias="tempVO" type="egovframework.let.temp.service.TempVO"/>
 	
 		<typeAlias alias="crudVO" type="egovframework.let.crud.service.CrudVO"/>
+		<typeAlias alias="crud2VO" type="egovframework.let.crud2.service.Crud2VO"/>
 	</typeAliases>
 </configuration>

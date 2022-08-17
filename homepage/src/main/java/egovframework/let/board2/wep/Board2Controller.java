@@ -1,4 +1,6 @@
 package egovframework.let.board2.wep;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,14 +22,19 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -160,7 +167,7 @@ public class Board2Controller {
 			}
 		}
 		model.addAttribute("result",result);
-		return "board2/BoardSelect";
+		return "board2/Board2Select";
 	}
 	//게시물 수정하기
 	@RequestMapping(value = "/board2/update.do")
@@ -218,4 +225,66 @@ public class Board2Controller {
 		
 		return "forward:/board2/selectList.do";
 	}
+	
+//
+//    /**
+//     * 댓글 등록(Ajax)
+//     * @param boardVO
+//     * @param request
+//     * @return
+//     * @throws Exception
+//     */
+//    @RequestMapping(value="/board2/addComment.do")
+//    @ResponseBody
+//    public String ajax_addComment(@ModelAttribute("boardVO") Board2VO searchVO, HttpServletRequest request) throws Exception{
+//        
+//        HttpSession session = request.getSession();
+//        LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
+//        
+//        try{
+//        
+//        	searchVO.setWriter(loginVO.getUserId());        
+//            board2ServiceImpl.addComment(searchVO);
+//            
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        
+//        return "success";
+//    }
+//    
+//    /**
+//     * 게시물 댓글 불러오기(Ajax)
+//     * @param boardVO
+//     * @param request
+//     * @return
+//     * @throws Exception
+//     */
+//    @RequestMapping(value="/board2/commentList.do", produces="application/json; charset=utf8")
+//    @ResponseBody
+//    public ResponseEntity ajax_commentList(@ModelAttribute("boardVO") Board2VO searchVO, HttpServletRequest request) throws Exception{
+//        
+//        HttpHeaders responseHeaders = new HttpHeaders();
+//        ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+//        
+//        // 해당 게시물 댓글
+//        List<Board2VO> commentVO = board2ServiceImpl.selectBoardCommentByCode(searchVO);
+//        
+//        if(commentVO.size() > 0){
+//            for(int i=0; i<commentVO.size(); i++){
+//                HashMap hm = new HashMap();
+//                hm.put("c_code", commentVO.get(i).getC_code());
+//                hm.put("comment", commentVO.get(i).getComment());
+//                hm.put("writer", commentVO.get(i).getWriter());
+//                
+//                hmlist.add(hm);
+//            }
+//            
+//        }
+//        
+//        JSONArray json = new JSONArray(hmlist);        
+//        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+//        
+//    }
+
 }

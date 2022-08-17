@@ -10,14 +10,7 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no"/>
-<title>수업용 게시판</title>
-<!-- BBS Style -->
-<link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
-<!-- 공통 style -->
-<link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-</head>
-<body>
+<title>공지사항 / Q&A</title>
 <!-- 	기본 URL 		-->
 <c:url var="_BASE_PARAM" value="">
 	<c:param name="meunNo" value="50"/>
@@ -29,6 +22,16 @@
 		<c:param name="searchKeyword" value="${searchVO.searchKeyword}"/>
 	</c:if>
 </c:url>
+<!-- BBS Style -->
+<link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
+<!-- 공통 style -->
+<link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<!-- 헤더 인클루드 -->
+<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
+
 
 <div class="container">
 	<div id="contents">
@@ -82,6 +85,11 @@
 		</div>
 	</div>
 </div>
+
+<!-- <!-- 댓글 인클루드 --> -->
+<%-- <%@ include file="/WEB-INF/jsp/main/Comment.jsp" %> --%>
+
+
 <script>
 $(document).ready(function(){
 	//게시글 삭제
