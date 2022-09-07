@@ -2020,7 +2020,7 @@
         <property name="tableName"  value="BOARD_ID"/>
     </bean>
 
-    <bean name="board2Strategy"
+    <bean name="boardStrategy"
         class="egovframework.rte.fdl.idgnr.impl.strategy.EgovIdGnrStrategyImpl">
         <property name="prefix" value="BOARD_" />
         <property name="cipers" value="14" />
@@ -2032,13 +2032,13 @@
         class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrServiceImpl"
         destroy-method="destroy">
         <property name="dataSource" ref="egov.dataSource" />
-        <property name="strategy"   ref="boardStrategy" />
+        <property name="strategy"   ref="board2Strategy" />
         <property name="blockSize"  value="10"/>
         <property name="table"      value="IDS"/>
         <property name="tableName"  value="BOARD_ID"/>
     </bean>
 
-    <bean name="boardStrategy"
+    <bean name="board2Strategy"
         class="egovframework.rte.fdl.idgnr.impl.strategy.EgovIdGnrStrategyImpl">
         <property name="prefix" value="BOARD2_" />
         <property name="cipers" value="13" />

@@ -45,6 +45,9 @@
 			</c:choose>
 			
 		</li>
+		<li>
+			<a href="/join/memberType.do">회원가입</a>
+		</li>
       </ul>
     </div>
   </nav>    

@@ -9,8 +9,11 @@ import egovframework.com.cmm.service.EgovCmmUseService;
 import egovframework.com.cmm.service.EgovFileMngService;
 import egovframework.com.cmm.service.FileVO;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
+import egovframework.let.api.naver.service.NaverLoginService;
 import egovframework.let.board.service.BoardService;
 import egovframework.let.board.service.BoardVO;
+import egovframework.let.join.service.JoinService;
+import egovframework.let.join.service.JoinVO;
 import egovframework.let.uat.uia.service.EgovLoginService;
 import egovframework.let.utl.fcc.service.EgovStringUtil;
 import egovframework.let.utl.fcc.service.FileMngUtil;
@@ -21,7 +24,11 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +44,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
+
 @Controller
 public class LoginController {
 	
@@ -45,6 +54,12 @@ public class LoginController {
 	
 	@Resource(name = "egovMessageSource")
 	EgovMessageSource egovMessageSource;
+	
+	@Resource(name = "naverLoginService")
+	private NaverLoginService naverLoginService;
+	
+	@Resource(name = "joinService")
+	private JoinService joinService;
 	
 	//로그인
 	@RequestMapping(value = "/login/actionLogin.do")
@@ -57,6 +72,7 @@ public class LoginController {
 		}else {
 			model.addAttribute("loginMessage", egovMessageSource.getMessage("fail.common.login"));
 			return "forward:/index.do";
+			//return "redirect" + reUrl;
 		}
 	}
 	
@@ -68,5 +84,47 @@ public class LoginController {
 		request.getSession().invalidate();
 		
 		return "forward:/index.do";
+	}
+	
+	//네이버 로그인 콜백
+	@RequestMapping(value = "/login/naverLogin.do")
+	public String naverLogin(@ModelAttribute("loginVO") LoginVO loginVO, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
+		
+		String domain = request.getServerName();
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginService.getAccessToken(session,code,state,domain);	//토큰을 만듦
+		
+		//로그인 사용자 정보를 읽어온다.
+		String apiResult = naverLoginService.getUserProfile(oauthToken);
+		
+		JSONParser parser = new JSONParser();	//org.json.simple.JSONObject
+		Object obj = parser.parse(apiResult);
+		JSONObject jsonObj = (JSONObject) obj;	//org.json.simple.JSONObject
+		JSONObject result = (JSONObject) jsonObj.get("response");	//실질적인		카카오톡:Propotice, 네이버:response
+		
+		loginVO.setId("NAVER-" + result.get("id").toString());
+		loginVO.setPassword("");
+		loginVO.setUserSe("USR");
+		
+		LoginVO resultVO = loginService.actionLogin(loginVO);
+		
+		//로그인 값이 없으면 회원가입처리
+		if(resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("")) {
+			request.getSession().setAttribute("LoginVO", resultVO);
+			return "forward:/index.do";
+		}else {
+			//일반가입을 제외하고는 ID값은 SNS명 + ID값
+			JoinVO joinVO = new JoinVO();
+			joinVO.setEmplyrId(loginVO.getId());
+			joinVO.setUserNm(result.get("name").toString());
+			joinVO.setPassword("");
+			joinVO.setPasswordHint("SNS가입자");
+			joinVO.setPasswordCnsr("SNS가입자");
+			
+			joinService.insertJoin(joinVO);
+			model.addAttribute("loginMessage","회원가입이 완료되었습니다.");
+			
+			return "forward:/index.do";
+		}
 	}
 }
