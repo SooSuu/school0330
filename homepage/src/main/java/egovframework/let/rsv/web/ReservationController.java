@@ -1,4 +1,4 @@
-package egovframework.let.admin.rsv.web;
+package egovframework.let.rsv.web;
 
 import java.util.List;
 
@@ -19,13 +19,13 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 @Controller
-public class ReservationAdminController {
+public class ReservationController {
 
 	@Resource(name = "reservationService")
 	private ReservationService reservationService;
 	
 	//예약목록 가져오기
-	@RequestMapping(value = "/admin/rsv/rsvSelectList.do")
+	@RequestMapping(value = "/rsv/rsvSelectList.do")
 	public String rsvSelectList(@ModelAttribute("searchVO") ReservationVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
 		
 		PaginationInfo paginationInfo = new PaginationInfo();
@@ -37,9 +37,11 @@ public class ReservationAdminController {
 		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		
 		//리스트를 가져온다
 		List<EgovMap> resultList = reservationService.selectReservationList(searchVO);
 		model.addAttribute("resultList", resultList);
+		
 		//count(목록수) 가져온다
 		int totCnt = reservationService.selectReservationListCnt(searchVO);
 		
@@ -49,15 +51,16 @@ public class ReservationAdminController {
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		model.addAttribute("USER_INFO", user);
 		
-		return "admin/rsv/RsvSelectList";
+		return "rsv/RsvSelectList";
 	}
+	/*
 	//예약정보 등록,수정
-	@RequestMapping(value = "/admin/rsv/rsvRegist.do")
+	@RequestMapping(value = "/rsv/rsvRegist.do")
 	public String rsvRegist(@ModelAttribute("searchVO") ReservationVO ReservationVO, HttpServletRequest request, ModelMap model) throws Exception{
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		if(user == null) {
 			model.addAttribute("message", "로그인 후 사용가능합니다.");
-			return "forward:/admin/rsv/rsvSelectList.do";
+			return "forward:/rsv/rsvSelectList.do";
 		}else {
 			model.addAttribute("USER_INFO", user);
 		}
@@ -71,20 +74,20 @@ public class ReservationAdminController {
 		
 		request.getSession().removeAttribute("sessionReservation");
 		
-		return "admin/rsv/RsvRegist";
+		return "rsv/RsvRegist";
 	}
 	//예약정보 등록하기
-	@RequestMapping(value = "/admin/rsv/rsvInsert.do")
+	@RequestMapping(value = "/rsv/rsvInsert.do")
 	public String insert(@ModelAttribute("searchVO") ReservationVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
 		  //이중 서브밋 방지 체크
 		  if(request.getSession().getAttribute("sessionReservation") != null) {
-			  return "forward:/admin/rsv/rsvSelectList.do";
+			  return "forward:/rsv/rsvSelectList.do";
 		  }
 		  
 		  LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		  if(user == null) {
 		     model.addAttribute("message", "로그인 후 사용가능합니다.");
-		     return "forward:/admin/rsv/rsvSelectList.do";
+		     return "forward:/rsv/rsvSelectList.do";
 		  }
 		  searchVO.setUserId(user.getId());
 		  
@@ -92,20 +95,20 @@ public class ReservationAdminController {
 		  
 		  //이중 서브밋 방지
 		  request.getSession().setAttribute("sessionReservation", searchVO);
-		  return "forward:/admin/rsv/rsvSelectList.do";  
+		  return "forward:/rsv/rsvSelectList.do";  
 	}
 	//예약정보 수정하기
-	@RequestMapping(value = "/admin/rsv/rsvUpdate.do")
+	@RequestMapping(value = "/rsv/rsvUpdate.do")
 	public String rsvUpdate(@ModelAttribute("searchVO") ReservationVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
 		  //이중 서브밋 방지
 		  if(request.getSession().getAttribute("sessionReservation") != null) {
-			  return "forward:/admin/rsv/rsvSelectList.do";
+			  return "forward:/rsv/rsvSelectList.do";
 		  }
 		  
 		  LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		  if(user == null) {
 		     model.addAttribute("message", "로그인 후 사용가능합니다.");
-		     return "forward:/admin/rsv/rsvSelectList.do";
+		     return "forward:/rsv/rsvSelectList.do";
 		  }
 		  
 		  searchVO.setUserId(user.getId());
@@ -114,22 +117,23 @@ public class ReservationAdminController {
 		  
 		  //이중 서브밋 방지
 		  request.getSession().setAttribute("sessionReservation", searchVO);
-		  return "forward:/admin/rsv/rsvSelectList.do"; 
+		  return "forward:/rsv/rsvSelectList.do"; 
 	}
 	//예약정보 삭제하기
-	@RequestMapping(value = "/admin/rsv/rsvDelete.do")
+	@RequestMapping(value = "/rsv/rsvDelete.do")
 	public String rsvDelete(@ModelAttribute("searchVO") ReservationVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
 		
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		if(user == null) {
 	     	model.addAttribute("message", "로그인 후 사용가능합니다.");
-	     	return "forward:/admin/rsv/rsvSelectList.do";
+	     	return "forward:/rsv/rsvSelectList.do";
 		}
 		
 		searchVO.setUserId(user.getId());
 		
 		reservationService.deleteReservation(searchVO);
 		
-		return "forward:/admin/rsv/rsvSelectList.do"; 
+		return "forward:/rsv/rsvSelectList.do"; 
 	}
+	*/
 }
