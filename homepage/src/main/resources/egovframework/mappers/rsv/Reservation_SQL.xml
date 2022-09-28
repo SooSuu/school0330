@@ -114,10 +114,12 @@
 					ELSE 5
 				END AS APPLY_STATUS
 			]]>
+			<!-- 예약프로그램에서 승인된 사람이 몇명인지 묻는 쿼리 -->
 			, (SELECT
 					COUNT(*)
 				FROM RESVEREQSTINFO B
 				WHERE A.RESVE_ID = B.RESVE_ID AND B.CONFM_SE_CODE = 'O') AS APPLY_F_CNT
+			<!-- O인 사람 찾기     *끝*-->
 			FROM RESVEINFO A
 			WHERE A.RESVE_ID = #{resveId}
 				AND A.USE_AT = 'Y'

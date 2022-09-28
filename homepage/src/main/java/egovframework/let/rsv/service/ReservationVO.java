@@ -49,7 +49,7 @@ public class ReservationVO extends ComDefaultVO implements Serializable{
 	//예약상태
 	private String applyStatus;
 	//승인된 신청자
-	private String applyFCnt;
+	private int applyFCnt;
 	
 	public String getResveId() {
 		return resveId;
@@ -177,10 +177,10 @@ public class ReservationVO extends ComDefaultVO implements Serializable{
 	public void setApplyStatus(String applyStatus) {
 		this.applyStatus = applyStatus;
 	}
-	public String getApplyFCnt() {
+	public int getApplyFCnt() {
 		return applyFCnt;
 	}
-	public void setApplyFCnt(String applyFCnt) {
+	public void setApplyFCnt(int applyFCnt) {
 		this.applyFCnt = applyFCnt;
 	}
 }

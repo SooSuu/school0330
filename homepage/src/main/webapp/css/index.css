@@ -112,8 +112,8 @@ body {
 }
 #header .gnb li a{
     text-decoration: none;  
-    font-family: 'Jua', sans-serif;
-    font-size: 1em;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.1em;
     color: black;
 }
 #header .gnb .left_menu{
@@ -167,14 +167,16 @@ body {
     height: 50%;
 }
 .item-wrap .item .menu{
-    font-family: 'Jua', sans-serif;
+    font-family: 'Dongle', cursive;
     padding: 10px 0;
+    font-size: 25px;
 }
 .item-wrap .item .list{
     font-size: 11px;
-    padding: 10px 15%;
+    padding: 10px 25%;
     font-family: 'Noto Sans KR', sans-serif;
 	line-height: 2.5;
+	text-align: left;
 }
 
 .item iframe{

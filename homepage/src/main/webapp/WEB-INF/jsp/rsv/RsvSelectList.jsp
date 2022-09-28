@@ -76,7 +76,7 @@
 								<tr>
 									<td class="num"><c:out value="${paginationInfo.totalRecordCount - ((searchVO.pageIndex-1) * searchVO.pageUnit) - (status.count - 1)}"/></td>
 									<td class="tit">
-										<c:url var="viewUrl" value="/rsv/rsvRegist.do${_BASE_PARAM}">
+										<c:url var="viewUrl" value="/rsv/rsvSelect.do${_BASE_PARAM}">
 											<c:param name="resveId" value="${result.resveId}"/>
 											<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
 										</c:url>
