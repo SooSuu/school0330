@@ -127,7 +127,7 @@ public class ReservationApplyController {
 	//예약자정보 목록 가져오기
 	@RequestMapping(value = "/rsv/selectApplyList.do")
 	public String selectApplyList(@ModelAttribute("searchVO") ReservationApplyVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
-		
+		//
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		if(user == null|| EgovStringUtil.isEmpty(user.getId())) {
 		     model.addAttribute("message", "로그인 후 사용가능합니다.");
