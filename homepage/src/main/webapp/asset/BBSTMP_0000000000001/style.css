@@ -49,7 +49,7 @@ div ~ #bbs_wrap { margin-top:30px; }
 
 /* list 일반 */
 #bbs_wrap .list_table { table-layout:fixed;width: 100%;border-collapse: collapse;color:#555; border-top:2px solid #545f80; }
-#bbs_wrap .list_table th { border-bottom:1px solid #ddd;background:#f7f7f7;padding-top:7px; padding-bottom:7px; text-align:center; font-weight:400; color:#000;}
+#bbs_wrap .list_table th { border-bottom:1px solid #ddd;background:#F0F8FF;padding-top:7px; padding-bottom:7px; text-align:center; font-weight:400; color:#000;}
 #bbs_wrap .list_table td { border-bottom:1px solid #ddd;padding-top:7px; padding-bottom:7px; text-align:center; font-weight:400;}
 #bbs_wrap .list_table .check { width:55px; }
 #bbs_wrap .list_table .num { width:50px; }

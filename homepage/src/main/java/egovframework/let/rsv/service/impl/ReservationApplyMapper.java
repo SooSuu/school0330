@@ -26,4 +26,13 @@ public interface ReservationApplyMapper {
 	
 	//예약자정보 목록 수
 	int selectReservationApplyListCnt(ReservationApplyVO vo) throws Exception;
+
+	//예약자 수정
+	void updateReservationApply(ReservationApplyVO vo) throws Exception;
+
+	//예약자 삭제
+	void deleteReservationApply(ReservationApplyVO vo) throws Exception;
+
+	//예약자 승인처리
+	void updateReservationConfirm(ReservationApplyVO vo) throws Exception;
 }

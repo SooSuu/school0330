@@ -36,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @Description : 메시지 처리 관련 유틸리티
  * @Modification Information
  *
- *     수정일         수정자                   수정내용
+ * 	     수정일       			  수정자                   			수정내용
  *     -------          --------        ---------------------------
  *   2009.02.13       이삼섭                  최초 생성
  *   2011.08.31  JJY            경량환경 템플릿 커스터마이징버전 생성
