@@ -30,6 +30,9 @@ public class ReservationApplyServiceImpl extends EgovAbstractServiceImpl impleme
 	@Resource(name = "reservationService")
 	protected ReservationService reservationService;
 	
+	@Resource(name = "egovReqTempIdGnrService")
+	protected EgovIdGnrService idgerTempService;
+	
 	//예약가능여부확인
 	@Override
 	public ReservationApplyVO rsvCheck(ReservationApplyVO vo) throws Exception{
