@@ -17,7 +17,7 @@
 	        	<entry key="photoThumbHeight" value="140"/>
 	        	
 	        	<!-- 예약자 업로드 물리경로 -->
-	        	<entry key="revFileStorePath" value="${Globals.File}/upload/rsv"/>
+	        	<entry key="rsvFileStorePath" value="${Globals.File}/upload/rsv"/>
 	        </map>
 		</property>
 	</bean>

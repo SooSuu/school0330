@@ -76,6 +76,7 @@ public class EgovFileMngUtil {
 	if ("".equals(storePath) || storePath == null) {
 	    storePathString = propertyService.getString("Globals.fileStorePath");
 	} else {
+		//어디에 저장할지 (storePath)
 	    storePathString = propertyService.getString(storePath);
 	}
 

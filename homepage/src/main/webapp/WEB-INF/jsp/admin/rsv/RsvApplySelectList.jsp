@@ -142,39 +142,38 @@ $(document).on('click','#excelReg',function(e){
 		return false;
 	}
 	
-	var form = new FormDate($('#excelForm')[0]);
+	var form = new FormData($('#excelForm')[0]);
 	var url = $('#excelForm').attr('action');
 	
-	$.ajax({
-		url:url,
-		type:'POST',
-		data:form,
-		async:false,
-		cache:false,
-		contentType:false,
-		processDate:false,
-		dataType:'json'
-		,success:function(result){
-			var message = "";
-			
-			if(result.success){
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:form,
+        async:false,
+        cache:false,
+        contentType:false,
+        processData:false,
+        dataType:'json'
+    	,success:function(result) {
+    		var message = "";
+    	
+			if(result.success) {
 				$("#excel").hide();
-				window.location.reload();
-			}else{
-				//alert(result.message);
-				for(i = 0; i < result.data.length; i++){
-					if(i != 0){
-						message += "\n";
-					}
-					message += result.data[i].userId + " : " + result.data[i].message;
-				}
-				alert(message);
-				window.location.reload();
-			}
+				window.location.reload();//reload,새로고침?
+     	   	} else {	//데이터가 잘못들어갔을때
+     	   		for(i = 0; i < result.data.length; i++){
+     	   			if(i != 0){
+     	   				message += "\n";
+     	   			}
+     	   			message += result.data[i].userId + " : " + result.data[i].message;
+     	   		}
+     	   		alert(message);
+     	   		window.location.reload();
+     	 	}
 		}
 	});
-	
-	return false;
+    
+    return false
 });
 </script>
 </body>

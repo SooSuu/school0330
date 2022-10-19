@@ -185,7 +185,8 @@ public class ReservationAdminApplyController {
 	//엑셀업로드
 	@RequestMapping(value = "/admin/rsv/excelUplode.json", method=RequestMethod.POST)
 	public @ResponseBody JsonResponse excelUplode(@ModelAttribute ReservationApplyVO searchVO, MultipartHttpServletRequest multiRequest, HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
-	
+		//@ResponseBody 자바버전 1.8이상부터 사용가능 : 자동으로 원하는 타입으로 바꿔준다(예-json)
+		//MultipartHttpServletRequest : 첨부파일을 받아주는 부분임
 		JsonResponse res = new JsonResponse();
 		res.setSuccess(true);
 		
@@ -193,11 +194,12 @@ public class ReservationAdminApplyController {
 			List<FileVO> result = null;
 			final Map<String, MultipartFile> files = multiRequest.getFileMap();
 			if(!files.isEmpty()) {
-				result = fileUtil.parseFileInf(files, "TEMP_", 0, null, "resFileStorePath");
+				//엑셀 파일을 저장하는 방식
+				result = fileUtil.parseFileInf(files, "TEMP_", 0, null, "rsvFileStorePath");
 				Map<String, Object> resultMap = new HashMap<>();
 				
 				for(FileVO file : result) {
-					if("xls".equals(file.getFileExtsn()) || "xlsx".equals(file.getFileExtsn())) {
+					if("xls".equals(file.getFileExtsn()) || "xlsx".equals(file.getFileExtsn())) {//xlsx: 윈도우에서만 읽을 수 있음
 						searchVO.setCreatIp(request.getRemoteAddr());
 						resultMap = reservationApplyService.excelUpload(file, searchVO);
 						if(!(Boolean)resultMap.get("success")) {
